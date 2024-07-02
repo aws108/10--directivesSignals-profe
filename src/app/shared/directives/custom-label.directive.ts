@@ -48,16 +48,16 @@ export class CustomLabelDirective implements OnInit { // aparece en el component
     const errors = Object.keys(this._errors);
     console.log(errors)
 
-    if ( errors.includes('required') )  {
-      this.htmlElement.nativeElement.innerText = 'Este campo es requerido.';
+    if ( errors.includes('required') )  { //si en los errores se incluye el required
+      this.htmlElement.nativeElement.innerText = 'Este campo es requerido.'; //texto que se verá
       return;
     }
 
-    if ( errors.includes('minlength') )  {
+    if ( errors.includes('minlength') )  { //para cuando ya has escrito, que no aparezca el texto del campo requerido, que te diga cuántos carácteres deben ser
       const min = this._errors!['minlength']['requiredLength'];
       const current = this._errors!['minlength']['actualLength'];
 
-      this.htmlElement.nativeElement.innerText = `Mínimo ${current}/${ min } caracteres.`;
+      this.htmlElement.nativeElement.innerText = `Mínimo ${current}/${ min } caracteres.`; //caracteres que has escrito/carácteres totales
       return;
     }
 
